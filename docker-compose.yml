@@ -23,8 +23,8 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: ./deployment/nginx
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./deployment/nginx/Dockerfile
     restart: unless-stopped
     ports:
 
