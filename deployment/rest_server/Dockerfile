@@ -34,9 +34,9 @@ COPY . /src
 WORKDIR /src
 
 # Create non-root user for security
-RUN adduser --disabled-password --gecos "" appuser && \
-    chown -R appuser:appuser /src
-USER appuser
+# RUN adduser --disabled-password --gecos "" appuser && \
+#     chown -R appuser:appuser /src
+# USER appuser
 
 CMD ["gunicorn", "rest_server.main:server", \
     "--workers", "4", \

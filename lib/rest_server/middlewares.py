@@ -26,10 +26,11 @@ async def create_context(
     request_id = uuid.uuid4().hex
 
     # Create context
-    # pg_connection is kept null by default
-    # individual request should acquire a connection from the pool
-    # and bind it to the context whenever required
-    server_context = Context(logger=request.app.logger, request_id=request_id)
+    server_context = Context(
+        logger=request.app.logger,
+        request_id=request_id,
+        chat_agent=request.app.chat_agent,
+    )
 
     # Bind vars to structlog logger
     structlog.contextvars.clear_contextvars()

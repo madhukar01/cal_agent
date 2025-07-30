@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 import structlog
 
+from lib.core.chat_agent import ChatAgent
+
 
 @dataclass
 class Context:
@@ -15,3 +17,4 @@ class Context:
 
     logger: structlog.stdlib.AsyncBoundLogger
     request_id: str
+    chat_agent: ChatAgent

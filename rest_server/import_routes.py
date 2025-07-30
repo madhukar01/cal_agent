@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from rest_server.api.chat import router as chat_api_router
+
 
 def import_routes(app: FastAPI) -> None:
     """
@@ -8,4 +10,4 @@ def import_routes(app: FastAPI) -> None:
     Args:
         app: FastAPI application
     """
-    del app
+    app.include_router(chat_api_router)
